@@ -1,6 +1,6 @@
 {
-  "name": "com.danishin.cordova-http",
-  "version": "1.0.0",
+  "name": "com.danishin.cordova.http",
+  "version": "1.0.1",
   "description": "Cordova / Phonegap plugin for communicating with HTTP servers using SSL pinning",
   "scripts": {
     "updatecert": "node ./scripts/update-test-cert.js",
@@ -13,7 +13,7 @@
     "release": "npm run test && ./scripts/release.sh"
   },
   "cordova": {
-    "id": "com.danishin.cordova-http",
+    "id": "com.danishin.cordova.http",
     "platforms": [
       "ios",
       "android"
