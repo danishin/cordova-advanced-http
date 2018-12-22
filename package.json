@@ -1,5 +1,5 @@
 {
-  "name": "cordova-plugin-advanced-http",
+  "name": "com.danishin.cordova-plugin-advanced-http",
   "version": "2.0.2",
   "description": "Cordova / Phonegap plugin for communicating with HTTP servers using SSL pinning",
   "scripts": {
