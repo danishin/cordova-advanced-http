@@ -32,14 +32,16 @@ public class CordovaHttpPlugin extends CordovaPlugin {
     super.initialize(cordova, webView);
     
     // https://stackoverflow.com/a/36892715/3891342
-    try {
-      ProviderInstaller.installIfNeeded(cordova.getActivity().getApplicationContext());
-    } catch (GooglePlayServicesRepairableException e) {
-      // Thrown when Google Play Services is not installed, up-to-date, or enabled
-      // Show dialog to allow users to install, update, or otherwise enable Google Play services.
-      GoogleApiAvailability.getInstance().showErrorNotification(cordova.getActivity().getApplicationContext(), e.getConnectionStatusCode());
-    } catch (GooglePlayServicesNotAvailableException e) {
-      Log.e("SecurityException", "Google Play Services not available.");
+    if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.LOLLIPOP) {
+      try {
+        ProviderInstaller.installIfNeeded(cordova.getActivity().getApplicationContext());
+      } catch (GooglePlayServicesRepairableException e) {
+        // Thrown when Google Play Services is not installed, up-to-date, or enabled
+        // Show dialog to allow users to install, update, or otherwise enable Google Play services.
+        GoogleApiAvailability.getInstance().showErrorNotification(cordova.getActivity().getApplicationContext(), e.getConnectionStatusCode());
+      } catch (GooglePlayServicesNotAvailableException e) {
+        Log.e("SecurityException", "Google Play Services not available.");
+      }
     }
   }
   
